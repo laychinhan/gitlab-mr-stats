@@ -240,6 +240,7 @@ async function processAndStoreMergeRequests(projectId: number, project: any) {
       id: mr.id,
       project_id: projectId,
       title: mr.title,
+      description: mr.description, // Save the description from GitLab API
       created_at: mr.created_at,
       updated_at: mr.updated_at,
       state: mr.state,
@@ -276,38 +277,50 @@ function formatTime(minutes: number | null): string {
 
 // Function to display MR statistics with date range filtering
 async function displayMergeRequestStats(projectId: number, startDate?: string, endDate?: string, commentThreshold?: number) {
-  const stats = await getMergeRequestStats(projectId, startDate, endDate);
+  const squadStats = await getMergeRequestStats(projectId, startDate, endDate);
 
-  let lateCommentCount = 0;
+  let lateMRsBySquad: { squad: string, count: number }[] = [];
   if (commentThreshold !== undefined) {
-    // Get count of MRs with late first comments
-    lateCommentCount = await countMrsWithLateFirstComment(projectId, commentThreshold, startDate, endDate);
+    // Get count of MRs with late first comments by squad
+    lateMRsBySquad = await countMrsWithLateFirstComment(
+      projectId,
+      commentThreshold,
+      startDate,
+      endDate
+    );
   }
 
   const dateRangeText = startDate && endDate
     ? `from ${startDate} to ${endDate}`
     : startDate
-    ? `after ${startDate}`
-    : endDate
-    ? `before ${endDate}`
-    : 'all time';
+      ? `from ${startDate}`
+      : endDate
+        ? `until ${endDate}`
+        : '';
 
-  console.log(`\n----- Merge Request Statistics (${dateRangeText}) -----`);
-  console.log(`Total MRs: ${stats.totalMRs}`);
-  console.log(`Merged MRs: ${stats.mergedMRs} (${stats.totalMRs > 0 ? Math.round(stats.mergedMRs / stats.totalMRs * 100) : 0}%)`);
-  console.log(`Average time to first comment: ${formatTime(stats.avgTimeToFirstComment)}`);
-  console.log(`Average time to approval: ${formatTime(stats.avgTimeToApproval)}`);
-  console.log(`Average time to merge: ${formatTime(stats.avgTimeToMerge)}`);
+  console.log(`\n✨ Merge Request Statistics ${dateRangeText} ✨\n`);
 
-  // Display late comment statistics if threshold was provided
-  if (commentThreshold !== undefined) {
-    const percentage = stats.totalMRs > 0
-      ? Math.round((lateCommentCount / stats.totalMRs) * 100)
-      : 0;
-    console.log(`\nMRs with first comment after ${formatTime(commentThreshold)}: ${lateCommentCount} (${percentage}%)`);
+  if (squadStats.length === 0) {
+    console.log('No merge request data with squad information found.');
+    return;
   }
 
-  console.log('------------------------------------');
+  // Display statistics for each squad
+  for (const stats of squadStats) {
+    console.log(`\n📊 Squad: ${stats.squad}`);
+    console.log(`Total MRs: ${stats.total_mrs}`);
+    console.log(`Merged MRs: ${stats.merged_mrs} (${Math.round((stats.merged_mrs / stats.total_mrs) * 100)}%)`);
+    console.log(`Avg. time to first comment: ${formatTime(stats.avg_time_to_first_comment)}`);
+    console.log(`Avg. time to approval: ${formatTime(stats.avg_time_to_approval)}`);
+    console.log(`Avg. time to merge: ${formatTime(stats.avg_time_to_merge)}`);
+
+    if (commentThreshold !== undefined) {
+      const lateCommentsForSquad = lateMRsBySquad.find(item => item.squad === stats.squad);
+      const lateCount = lateCommentsForSquad ? lateCommentsForSquad.count : 0;
+      const percentLate = stats.total_mrs > 0 ? Math.round((lateCount / stats.total_mrs) * 100) : 0;
+      console.log(`MRs with first comment > ${commentThreshold} min: ${lateCount} (${percentLate}%)`);
+    }
+  }
 }
 
 // Helper to validate date format (YYYY-MM-DD)

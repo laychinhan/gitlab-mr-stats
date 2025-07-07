@@ -1,0 +1,1040 @@
+373786474,""
+374374850,""
+374653915,""
+374654221,""
+374654614,""
+374665837,Untuk dipakai di manapun dengan cara `if common.IsDevelopment { ... }`.
+374667254,"Sebelum commit ini, tiap test dibuatkan DB baru dengan nama berdasarkan
+hash dari `t.Name()`, which is nama test function + nama subtest, yang
+mana sebetulnya sekarang pun sudah ada yg conflict.
+
+Di sini penamaan DB barunya diganti jadi dengan men-generate UUID untuk
+tiap (sub)test, jadi hampir ga mungkin untuk conflict, tapi jeleknya
+bisa jadi banyak DB sampah di instance Postgres testing kalau
+cleanup-nya gagal.
+
+Contoh ketika ada conflict: https://gitlab.com/wartek-id/murid/learning-platform-be/-/jobs/9639413145"
+374671571,"Untuk sekarang cuma buat menampilkan detail unit di halaman CMS list sub
+unit."
+374950651,""
+374967450,Insert/update ke semua subunit-unit-mapel-fase yang namanya sama.
+375079358,""
+375088890,"Previously our documentation is group by CMS tags and also have duplicate record on other tags
+![image](/uploads/5f2d305715c40d8818358b519bca87b9/image.png){width=912 height=638}
+![image](/uploads/4da45d79a8606d66f4351da07f09e104/image.png){width=912 height=165}
+
+---
+Splitting the API to more specific tags will make the API cleaner
+![image](/uploads/f385048f072bd7e5d0ad7f907d12ed97/image.png){width=966 height=679}"
+375252371,create working login and callback endpoint
+375256673,""
+375302269,""
+375551954,""
+375573701,"Pindah dari
+https://gitlab.com/wartek-id/murid/casdoor/-/compare/cfc6015acaf1...master
+
+Sekalian update image version."
+375582308,Bekas kode yg lupa dihapus waktu implementasinya cuma update 1 row.
+375634130,"Current existings status are
+
+![image](/uploads/03c1615578be8b673ad12c6eb886e0ec/image.png){width=176 height=500}
+
+And new detail regarding Terbit at
+
+![image](/uploads/ad72ecfbec9d1e837090aaefc59e7fee/image.png){width=295 height=209}"
+375913332,""
+376318417,""
+376580056,move response handling to handler and add CORS
+376618602,"Based on latest discussion with PM, for consistency, slug will be update when judul is updated
+
+![image](/uploads/19e32300d0dc3a3a397711786670e51d/image.png){width=533 height=167}"
+376816106,FE perlu implement login dulu sebelum ini bisa di-merge.
+376833780,swaggernya later ya abis tektokan dengan FE butuh field apa aja
+376856787,""
+376880008,""
+377159215,Sudah ganti DB_HOST di CI/CD variables juga.
+377165809,""
+377183662,""
+377226750,""
+377748489,Supaya lebih mudah dibaca.
+377915221,""
+377942232,""
+378214844,""
+378227516,""
+378596143,""
+378617201,""
+378674492,""
+379388514,"📄 Deskripsi
+
+implement logout by deleting token
+
+🎯 Ticket Terkait
+
+https://wartek.atlassian.net/browse/MCM-84"
+379469335,"There is a request to make nama penulis to be optional on Script
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379526967,"<insert description here if needed>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379686823,"<insert description here if needed>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379700767,"<insert description here if needed>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379705887,"* Better test in admin endpoint by checking role instead of just token format.
+* Delete empty tag in API doc.
+* Consistent register routes function names.
+* Replace interface{} with any.
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379967490,"`time.Now().Day()` itu return tanggal di local time zone, sementara test
+cases di sini expect tanggal UTC.
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+380044937,"Based on the test results shown in this picture, the only special characters that will be retaind are `.`, `+`, `-`, `/`, `~`
+
+![image](/uploads/a78f278145423f88acd5fd4c22fae081/image.png){width=1512 height=732}
+
+And based on the test results shown in this picture, it won't cause any problems with retaining the special characters above
+
+![image](/uploads/bf3293e7d6c81a2eb60d71817f1ebe70/image.png){width=1512 height=517} 
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+380466092,"<insert description here if needed>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+380471220,"<insert description here if needed>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+380527020,"<insert description here if needed>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+380823381,"<insert description here if needed>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+381099802,"<insert description here if needed>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+381119279,"<insert description here if needed>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+381143400,"<insert description here if needed>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>
+
+Closes MCM-49"
+381171184,"<insert description here if needed>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+381440510,"<insert description here if needed>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>
+
+Closes MCM-94"
+381482505,"<insert description here if needed>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+381498293,"Since error logging is currently independent, it is better to make the error messages more verbose and differentiate them.
+
+![image](/uploads/0e9f9d1b7bc2788c415c8f63487bfbda/image.png){width=850 height=150}
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+381775543,"<insert description here if needed>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+381794204,"# Checklist
+- [x] prepare MURID_CASDOOR_CONNSTRING secret.
+  - [x] prepase DB credentials.
+- [x] prepare MURID_CASDOOR_REDIS secret.
+  - [x] prepare redis in murid-production GCP.
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+382046229,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MCM-121"
+382073740,""
+382112031,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+382123275,"Previous tbls version doesn't handle special character
+
+![image](/uploads/3fe33dd4a8843cee8c589ee2206362d4/image.png){width=1267 height=141}
+
+![image](/uploads/63311397bc6bca173c3210cafcd4bb31/image.png){width=999 height=110}
+
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+382142271,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MCM-123"
+382921324,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+| TC ID | Case | Scenario | Request URL | Expected Result | Screenshot |
+| ------ | ------ | ------ | ------ | ------ | ------ |
+| TC004 | GET Materi (Positive) | Lihat semua materi dari semua institusi | GET /materi | 200 OK, daftar materi muncul (baik yang punya institution_id maupun tidak). Terdapat field nama_institusi di response API | ![image](/uploads/8bb9c7f8ed4ca4829ddf2fec4df34c4c/image.png){width=608 height=625} |
+| TC005 | GET Materi (Negative) | Akses daftar materi tanpa token | GET /materi tanpa header Authorization | 401 Unauthorized, pesan: token diperlukan | ![image](/uploads/10d349d060ab9c376db26d6c07f5c109/image.png){width=449 height=91} |
+| TC006 | GET Materi Detail (Positive) | Akses daftar materi berdasarkan id | GET /materi/{id} - have institusi | 200 OK, hanya muncul detail materi berdasarkan id yang dihit (punya institution_id). di response API terdapat institusi.id & institusi.nama | ![image](/uploads/c14f0baa87b2b186c39dd564d136bda9/image.png){width=651 height=751} |
+| TC006 | GET Materi Detail (Positive) | Akses daftar materi berdasarkan id | GET /materi/{id} - don't have institusi | 200 OK, hanya muncul detail materi berdasarkan id yang dihit (tidak punya institution_id). di response API tidak terdapat institusi.id & institusi.nama | ![image](/uploads/803c7a68fcffe9608232778bfd20b01a/image.png){width=606 height=419} |
+| TC007 | GET Materi Detail (Negative) | Akses daftar materi berdasarkan id - invalid id | GET /materi/{id} | error, id tidak ditemukan | ![image](/uploads/a2c34be63b297f62aa820a9e5f1a9ce3/image.png){width=592 height=291} |"
+383154726,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MCM-81"
+383218038,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+383564275,"[Dari info Mas Herman di Slack](https://merdeka-belajar.slack.com/archives/C089HS67J02/p1747298437088379?thread_ts=1747298191.499979&cid=C089HS67J02), buat user facing kemungkinan akan
+menggunakan auth provider yang berbeda dengan CMS, jadi kode middleware
+yang sekarang digunakan oleh CMS mending dipindah ke module CMS aja.
+
+Sama hapus login secrets dari log:
+![image](/uploads/28bec3b6a53bf1c037df9d0d0f4d9c08/image.png)
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+383761969,"See commit list.
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+383785936,"previous MR https://gitlab.com/wartek-id/murid/learning-platform-be/-/merge_requests/228 skipping pipeline before merging, so test is not checked
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+383800150,"Nanti tinggal di-revert/copy dari cmsauth kalau mulai diperlukan.
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+383853027,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+| TC ID | Case | Scenario | Expected Result | Screenshot |
+| ------ | ------ | ------ | ------ | ------ | 
+| TC008 | PATCH Materi (Positive) | Ubah materi milik non institusi | 200 OK, berhasil update data materi non institusi | ![image](/uploads/f62f0f56f6defac964c783ecccf71d19/image.png){width=844 height=723} |
+| TC009 | PATCH Materi (Negative) | Coba ubah materi milik institusi manapun | 403 Forbidden, pesan: content admin tidak memiliki izin mengubah materi | ![image](/uploads/5e982e99af468984957e7bd9b4e81080/image.png){width=960 height=747} |
+| TC010 | PATCH Materi (Negative) | Ubah materi tanpa token | 401 Unauthorized, pesan: token diperlukan | ![image](/uploads/9696fa12f699a1e978c6af440f61aa66/image.png){width=532 height=166} |
+| TC011 | PATCH Materi (Negative) | Ubah materi dengan body kosong | 400, pesan: id tidak ditemukan | ![image](/uploads/cdac2e5f1edb313f68af3bb4f18ebacb/image.png){width=962 height=588} |"
+384248839,"Saya coba sslmode=require dari local ke staging masih bisa, tapi just in
+case ada DB yg ga support entah di local atau CI mending dibuat
+sslmode=prefer (default value[1]) aja.
+
+[1] https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+384293102,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+384594836,"As compression is being disabled currently, and after discussion with EM, we will delete it as we don't have any feasible future that compression be will enable
+
+![image](/uploads/6de3cffb928dcdc7970654cc884ff93c/image.png){width=698 height=319}
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+384608815,"On GET CMS Materi, we return kategori based on the id of sub-unit order by id asc, but in CMS Kategori, we return it by created_at, but it is better to return by id as created_at can be equal
+
+![image](/uploads/cce50aa7fb2994349ca041b2ba5078b9/image.png){width=615 height=295}
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+384647638,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+- tested in local:
+![image](/uploads/e3701316c5ae917df86749522ec81655/image.png){width=1072 height=623}
+
+Closes MCM-268"
+385066712,"Tested using staging database & storage 
+
+Source: [Sheets#19-28](https://docs.google.com/spreadsheets/d/1jjdcQ9ptlWEz6CA7HyWfOceLwLle0zZzV-IUtX3ajF4/edit?gid=1429117188#gid=1429117188)
+
+![image](/uploads/cdb15320655beaa8a448887f29d5f5c4/image.png){width=1275 height=497}
+![image](/uploads/8682a1df3d5b614a5e670d38e1efc7dc/image.png){width=940 height=494}
+
+Source: [Storage](https://console.cloud.google.com/storage/browser/murid-cdn-staging/konten-interaktif?inv=1&invt=AbyaVg&project=murid-staging&pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)))
+
+![image](/uploads/d5305740b41095b1dd22662e34e0c6b1/image.png){width=861 height=388}
+![image](/uploads/214cb0b256539668743706b8342ef9ad/image.png){width=965 height=259}
+![image](/uploads/847501a6717517bc872c284dc9acc850/image.png){width=930 height=348}
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+385292024,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+385328195,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+385619812,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+386057022,"Tested di https://gitlab.com/wartek-id/murid/learning-platform-be/-/commit/7b9cb48060ae2ac9b705591d6d846c87d7a6cbaa
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+386085493,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+386328905,"- Some Zip will have this structure, and we want to support this case
+  ```
+  folder/ (Dir)
+  folder/root/ (Dir)
+  folder/root/index.html (File)
+  folder/root/css/ (Dir)
+  folder/root/css/test.css (File)
+  ```
+- Support Legacy Zip Content Type `application/x-zip-compressed` (https://mimetype.io/application/x-zip-compressed) & New Zip Content Type `application/zip-compressed`  (https://mimetype.io/application/zip-compressed), https://mimetype.io/application/zip
+
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+386423663,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+386624722,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+386634019,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+386684188,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+386698170,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+![image](/uploads/302ee6d6667e87e0d67ae3ef0598e17f/image.png){width=1104 height=575}
+
+Closes MCM-268"
+387223770,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+387249572,"We need to set supportsAllDrives as true [docs](https://developers.google.com/workspace/drive/api/guides/enable-shareddrives), if we want to access Shared Drive Folder
+
+![image](/uploads/85bd6f46f74364dfbaffc32ed1fcfcc2/image.png){width=871 height=71}
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+387691967,"# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+387703762,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+387703856,"Our Database Record jenjang name has been updated to using short name like, SD, SMP, SMA & SMK (Materi Umum), ... So this function is not relevant anymore
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+388075559,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+388185511,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+388539194,"As it is possible for us later to have another user with Group `Individu`, it is better to use `actor.IsInstitusi` instead of `!actor.IsInternal` to minimize further problem
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+388581040,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+| TC ID | Case | Scenario | Input | Request URL | Expected Result | Unit Test |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| TC013 | PATCH Materi (Negative) | Coba update materi milik institusi lain | Token PIC A, ID materi milik B | PATCH /materi/:id | 403 Forbidden, pesan: tidak diizinkan | ![image](/uploads/a8d19fcd0e73c1e622b373cfe51cc155/image.png){width=839 height=649} |
+| TC013 (2) | PATCH Materi (Negative) | Coba update materi milik internal | Token PIC A, ID materi milik internal | PATCH /materi/:id | 403 Forbidden, pesan: tidak diizinkan | ![image](/uploads/232f6b78d434a32b1b1fede835c1b3b9/image.png){width=641 height=193} |
+| TC018 | GET Detail Materi (negative) | Lihat detail materi milik institusi lain | Token PIC A, ID materi milik B | GET cms/materi/:id | 403 Forbidden, pesan: tidak diizinkan | ![image](/uploads/3819d2b5bf2e24361ec91287fc413e40/image.png){width=675 height=158} |
+| TC018 (2) | GET Detail Materi (negative) | Lihat detail materi milik internal | Token PIC A, ID materi milik internal | GET cms/materi/:id | 403 Forbidden, pesan: tidak diizinkan | ![image](/uploads/4061293d7a2756a44b130ca316e6562f/image.png){width=594 height=152} |"
+388880340,"Also add tests.
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+388884362,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+390009287,"Background: To add another route for uploading konten-interaktif, which might have additional parameters like `tipe`, and to ensure compatibility with `route.BindRequest`, the current article upload endpoint was refactored. This was done to facilitate easier handling later.
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+390259880,"Related: https://gitlab.com/wartek-id/murid/learning-platform-be/-/commit/fcd0cd9bce8397358152c9f974718d7de6cca4c5#182ec1a50d92600734d2e456142da45667b3241b_3_2
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+390420556,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+391230948,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+391657040,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+391957418,https://gitlab.com/wartek-id/infra/helm-charts/-/commit/f9a3e7ac3f92f001e2e43594af4efdef6e633a85
+391974427,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+391998600,Contoh error: https://gitlab.com/wartek-id/murid/learning-platform-be/-/jobs/10387504740
+392376174,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+392510649,"Secret baru sudah ditambahkan ke Secret Manager.
+
+![image](/uploads/9bb43ff4577c6ce1bbaf1fe47465f873/image.png)
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+392515166,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- URL Offline Exceed 250MB
+![image](/uploads/652afab617523a3ca1c3a84a0b264d72/image.png){width=937 height=166}
+
+- URL Offline Exactly 250MB
+![image](/uploads/4623fb88ca6a25001f7ce4708254f323/image.png){width=917 height=720}
+
+- URL Offline Below 250MB
+![image](/uploads/7fd96ae9bffa331ca473b7ac172615c6/image.png){width=912 height=720}"
+392534161,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- POST /cms/mapel ditolak untuk admin institusi
+
+![image](/uploads/47598362470dab38bcee7d0fc24ee5e8/image.png){width=819 height=628}
+- PATCH /cms/unit/{id} ditolak untuk admin institusi
+
+![image](/uploads/63a2c4ed319a66443174c6a53116a8fe/image.png){width=1047 height=622}
+
+Closes MCM-342"
+392916050,"Kalau ada saran buat translasi yang lebih bagus mohon langsung komen.
+
+Note: translasi yang dibuat di sini hanya untuk jenis-jenis error yang
+saat ini digunakan di aplikasi, belum mencakup semua error yang bisa
+terjadi secara teknis. Jika suatu saat butuh handle jenis error baru,
+translasinya harus ditambahkan lagi (dan dicek lewat kode test).
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"

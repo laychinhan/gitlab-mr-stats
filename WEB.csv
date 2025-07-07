@@ -1,0 +1,813 @@
+373889406,![image](/uploads/bdabe9a5ac356746edfed23ea70e9cf9/image.png){width=532 height=214}
+374297909,"- mata_pelajaran (created_by, updated_at, updated_by)
+- unit (created_by, updated_at, updated_by)
+- sub_unit (created_by, updated_at, updated_by)
+- materi (created_by, updated_by)
+- sub_unit_materi (created_by)
+- rekomendasi (created_by, updated_by)"
+374318634,https://wartek.atlassian.net/browse/MUR-402
+374330757,""
+374655427,""
+374691194,""
+374785244,""
+374945504,"- halaman utama dasbor kategori bisa pakai /cms/sub-unit?sort=fase&order=asc&offset=0&limit=10
+![dashboard_kategori_sub_unit](/uploads/a524ea19affa7b3dc248672a874b1484/dashboard_kategori_sub_unit.png)
+- halaman list sub-unit by unit id bisa pakai /cms/sub-unit?sort=created_at&order=desc&offset=0&limit=10&unit_id=2163a40b-dfc3-419b-9781-65f59011f467
+![Screenshot_2025-04-08_at_09.27.02](/uploads/6b8d1525525a298a943ee5c87a8710f1/Screenshot_2025-04-08_at_09.27.02.png)"
+374995619,""
+375058655,""
+375257834,"https://gitlab.com/wartek-id/murid/learning-platform-be/-/blob/7e14809cf805c5a7ff64872467196d9c2cac87ad/internal/route/openapi.yaml
+## [MUR-483](https://wartek.atlassian.net/browse/MUR-483) API CMS get list fase
+- untuk dropdown filter fase
+- return list of unique fase lexicographically
+
+## [MUR-484](https://wartek.atlassian.net/browse/MUR-484) API CMS get list nama mapel
+- untuk dropdown filter mapel
+- bisa nerima query param `fase` (optional), in case setelah select filter fase mau refresh listnya
+- return list of unique nama mapel lexicographically
+
+## [MUR-485](https://wartek.atlassian.net/browse/MUR-485) API CMS get list nama unit
+- untuk dropdown filter unit
+- bisa nerima query param `fase` dan `nama_mata_pelajaran` (optional), in case setelah select filter fase dan/atau filter mapel mau refresh listnya
+- return list of unique nama unit lexicographically
+
+## [MUR-482](https://wartek.atlassian.net/browse/MUR-482) API CMS get list kategori
+- untuk list di halaman dasbor kategori
+- bisa nerima query param `fase`, `nama_mata_pelajaran` dan `nama_unit` (optional)
+- query param pagination (`offset`, `limit`)
+- group by (`fase`, `nama_sub_unit`)
+- sort by (`fase`, `nama_sub_unit`, `jenjang.urutan`, `nama_mata_pelajaran`, `nama_unit`, `sub_unit.created_at`) (can be changed later)
+
+<details><summary>Test Query</summary>
+select distinct on (k.fase, su.nama) su.id, j.nama, k.fase, mp.nama, u.nama, su.nama
+
+from jenjang j\
+join kelas k on k.jenjang_id = j.id\
+join mata_pelajaran mp on mp.kelas_id = k.id\
+join unit u on u.mata_pelajaran_id = mp.id\
+join sub_unit su on su.unit_id = u.id\
+order by k.fase asc, su.nama asc, j.urutan, mp.nama asc, u.nama asc, su.created_at asc\
+offset 0 limit 10;
+</details>
+
+![dashboard_kategori_sub_unit_copy](/uploads/35574399c70d81bc14529528c82f851d/dashboard_kategori_sub_unit_copy.png)"
+375285693,""
+375555332,https://console.cloud.google.com/security/secret-manager/secret/SEARCH_MATERI_DISABLED/versions?invt=AbuE0g&project=murid-production
+375573424,[OpenAPI](https://gitlab.com/wartek-id/murid/learning-platform-be/-/merge_requests/143) part API CMS get list fase
+375586695,[OpenAPI](https://gitlab.com/wartek-id/murid/learning-platform-be/-/merge_requests/143) part API CMS get list nama mapel
+375863243,[OpenAPI](https://gitlab.com/wartek-id/murid/learning-platform-be/-/merge_requests/143) part API CMS get list nama unit
+376242405,[OpenAPI](https://gitlab.com/wartek-id/murid/learning-platform-be/-/merge_requests/143) part API CMS get list kategori
+376529336,""
+376530834,""
+376532876,""
+376533902,""
+377212724,""
+377923164,""
+378558301,""
+378560121,""
+379011226,""
+379427973,"Adjust API get mapel detail to hide units (configurable)
+
+ENV configuration
+- key: `UNIT_HIDELIST`
+- value: semicolon-separated string, e.g. `Unit 1; Unit 2`
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379672860,"# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379674768,"https://wartek.atlassian.net/browse/MUR-583
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379701201,"# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379711191,"# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379712625,"delete remove dev flag for partial keyword search in api get materi
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379734906,"<insert description here if needed>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379744754,"<insert description here if needed>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+379800974,"fix error if put symbol (non alphanumeric)
+fix trim space
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+381038547,"<insert description here if needed>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+381063292,"# Description
+Penambahan judul, thumbnail_url dan slug materi di response. Untuk sub unit id sudah bisa didapatkan dari `id` di response. Pemilihan featured video ini diambil dari materi di bawah sub unit yang memiliki tipe video, status terbit, dan latest created_at.
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+381432267,"<insert description here if needed>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>"
+381493676,"<insert description here if needed>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>
+
+Closes MUR-606"
+381774350,"<insert description here if needed>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+
+# Unit Test Scenarios
+- <list of scenario/unit test name, to be checked by QA>
+
+Closes MUR-606"
+383171032,"# Description
+- exclude sub-unit if no materi with status `Terbit`
+- exclude unit if there is no sub-unit that has materi with status `Terbit`
+- the cost and time increase was small enough
+- analyzed with production data, with mapel that has the most materi(s) (290)
+- analyzed previous query ![Screenshot_2025-05-14_at_12.45.15](/uploads/f3d3dad8d72f8c8f650a3e75e8581398/Screenshot_2025-05-14_at_12.45.15.png)
+- analyzed current query ![Screenshot_2025-05-14_at_13.06.32](/uploads/2441e2624c9acea515e34c1dbfa21d7f/Screenshot_2025-05-14_at_13.06.32.png)
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- exclude sub-unit that has no materi with status `Terbit`
+- exclude unit with no sub-unit that has materi with status `Terbit`
+
+Closes MUR-629"
+383251265,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+For only two mapel
+- pagination limit 1 offset 0 (should display one mapel, total should be valid)
+- pagination limit 1 offset 1 (should display no mapel, total should be valid)
+
+Closes MCM-145"
+384222106,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-629"
+384520860,"# Checklist
+
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+
+- 
+
+Closes MUR-646"
+384532524,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- only show materi from the user institution, show all materi if internal
+- save institution id to the materi when creating
+- prevent update from different institusi"
+384847678,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-646"
+384929275,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-646"
+385293748,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-669"
+386016832,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-710"
+386302361,"fix yang SMK tidak muncul di list CMS
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+386305695,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-724"
+386412694,"<change summary>
+
+# Checklist
+- [ ] development flag (not needed, prod data still empty)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-747"
+386654151,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- Get materi with hiedu.hpl account
+![image](/uploads/e3dcdd128719d34e59bff7c842ae3d30/image.png)
+- Update materi with hiedu.hpl account
+![image](/uploads/c52028a0ffe472fbfb9d215cd67e6444/image.png){width=1538 height=946}
+![image](/uploads/8341c19dad987488e08c887a088b5621/image.png){width=1538 height=946}
+- Create materi with hiedu.hpl account
+![image](/uploads/c53f7ea5bafd54ee4a5eb994578d7292/image.png){width=1538 height=946}
+![image](/uploads/64f8338b0bf6d1ea93dbb8402adaca06/image.png){width=1538 height=946}
+Closes MCM-294"
+387181669,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-669"
+387224437,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+387633081,"https://wartek.atlassian.net/wiki/spaces/PME/pages/3007807491/RFC+Materi+View+Count
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-718"
+387634347,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+Token output
+```bash
+echo “eyJhbGciOiJSUzI1NiIsImtpZCI6ImNlcnQtYnVpbHQtaW4iLCJ0eXAiOiJKV1QifQ.eyJvd25lciI6Ik11cmlkIiwibmFtZSI6Ik5hbmRhIiwiY3JlYXRlZFRpbWUiOiIyMDI1LTA2LTA1VDEzOjE1OjM2KzA3OjAwIiwidXBkYXRlZFRpbWUiOiIyMDI1LTA2LTA1VDA2OjQ0OjU0WiIsImRlbGV0ZWRUaW1lIjoiIiwiaWQiOiJiNDJjZmYwOS1mMGIyLTRiYjUtYmM3OC0yM2E3NThhNjFmMTUiLCJ0eXBlIjoibm9ybWFsLXVzZXIiLCJwYXNzd29yZCI6IiIsInBhc3N3b3JkU2FsdCI6IiIsInBhc3N3b3JkVHlwZSI6ImJjcnlwdCIsImRpc3BsYXlOYW1lIjoiTmFuZGEiLCJmaXJzdE5hbWUiOiIiLCJsYXN0TmFtZSI6IiIsImF2YXRhciI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0lRRFNuR0NWX0d6aDRZNzdjNUhUOHUzMlYtYnk1cHRzRlFpaDlhaVlIdTR6WUZVZGM9czk2LWMiLCJhdmF0YXJUeXBlIjoiIiwicGVybWFuZW50QXZhdGFyIjoiIiwiZW1haWwiOiJuYW5kYUB3YXJ0ZWsuYmVsYWphci5pZCIsImVtYWlsVmVyaWZpZWQiOmZhbHNlLCJwaG9uZSI6IjEzODA0MDQ3MDI2IiwiY291bnRyeUNvZGUiOiJVUyIsInJlZ2lvbiI6IiIsImxvY2F0aW9uIjoiIiwiYWRkcmVzcyI6W10sImFmZmlsaWF0aW9uIjoiRXhhbXBsZSBJbmMuIiwidGl0bGUiOiIiLCJpZENhcmRUeXBlIjoiIiwiaWRDYXJkIjoiIiwiaG9tZXBhZ2UiOiIiLCJiaW8iOiIiLCJsYW5ndWFnZSI6IiIsImdlbmRlciI6IiIsImJpcnRoZGF5IjoiIiwiZWR1Y2F0aW9uIjoiIiwic2NvcmUiOjIwMDAsImthcm1hIjowLCJyYW5raW5nIjowLCJpc0RlZmF1bHRBdmF0YXIiOmZhbHNlLCJpc09ubGluZSI6ZmFsc2UsImlzQWRtaW4iOnRydWUsImlzRm9yYmlkZGVuIjpmYWxzZSwiaXNEZWxldGVkIjpmYWxzZSwic2lnbnVwQXBwbGljYXRpb24iOiJtdXJpZC1jbXMiLCJoYXNoIjoiIiwicHJlSGFzaCI6IiIsImFjY2Vzc0tleSI6IiIsImFjY2Vzc1NlY3JldCI6IiIsImdpdGh1YiI6IiIsImdvb2dsZSI6IjExNzI5OTAxOTgyMDU0OTAwMTE5MCIsInFxIjoiIiwid2VjaGF0IjoiIiwiZmFjZWJvb2siOiIiLCJkaW5ndGFsayI6IiIsIndlaWJvIjoiIiwiZ2l0ZWUiOiIiLCJsaW5rZWRpbiI6IiIsIndlY29tIjoiIiwibGFyayI6IiIsImdpdGxhYiI6IiIsImNyZWF0ZWRJcCI6IiIsImxhc3RTaWduaW5UaW1lIjoiIiwibGFzdFNpZ25pbklwIjoiIiwicHJlZmVycmVkTWZhVHlwZSI6IiIsInJlY292ZXJ5Q29kZXMiOm51bGwsInRvdHBTZWNyZXQiOiIiLCJtZmFQaG9uZUVuYWJsZWQiOmZhbHNlLCJtZmFFbWFpbEVuYWJsZWQiOmZhbHNlLCJsZGFwIjoiIiwicHJvcGVydGllcyI6eyJvYXV0aF9Hb29nbGVfYXZhdGFyVXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSVFEU25HQ1ZfR3poNFk3N2M1SFQ4dTMyVi1ieTVwdHNGUWloOWFpWUh1NHpZRlVkYz1zOTYtYyIsIm9hdXRoX0dvb2dsZV9kaXNwbGF5TmFtZSI6Ik5hbmRhIE51Z3JhaGEiLCJvYXV0aF9Hb29nbGVfZW1haWwiOiJuYW5kYUB3YXJ0ZWsuYmVsYWphci5pZCIsIm9hdXRoX0dvb2dsZV9pZCI6IjExNzI5OTAxOTgyMDU0OTAwMTE5MCIsIm9hdXRoX0dvb2dsZV91c2VybmFtZSI6Im5hbmRhQHdhcnRlay5iZWxhamFyLmlkIn0sInJvbGVzIjpbeyJvd25lciI6Ik11cmlkIiwibmFtZSI6ImFkbWluX3N1cGVyIiwiY3JlYXRlZFRpbWUiOiIyMDI1LTA0LTIxVDE2OjUxOjU3KzA3OjAwIiwiZGlzcGxheU5hbWUiOiJLb250ZW4gQWRtaW4iLCJkZXNjcmlwdGlvbiI6IiIsInVzZXJzIjpudWxsLCJncm91cHMiOlsiTXVyaWQvSW50ZXJuYWwiXSwicm9sZXMiOltdLCJkb21haW5zIjpbXSwiaXNFbmFibGVkIjp0cnVlfV0sInBlcm1pc3Npb25zIjpbXSwiZ3JvdXBzIjpbIk11cmlkLzNkZTYyZjVjLWYzMzMtNGU3OC1hZjBlLTFjOTFlYmVhNzIwNCJdLCJsYXN0U2lnbmluV3JvbmdUaW1lIjoiIiwic2lnbmluV3JvbmdUaW1lcyI6MCwibWFuYWdlZEFjY291bnRzIjpudWxsLCJ0b2tlblR5cGUiOiJhY2Nlc3MtdG9rZW4iLCJ0YWciOiJzdGFmZiIsInNjb3BlIjoicHJvZmlsZSIsImF6cCI6IjE3ZWU5ZDRhNzhhYjUxMGY2ZGI4IiwiaXNzIjoiaHR0cHM6Ly9tdXJpZC1jYXNkb29yLnN0YWdpbmcuYmVsYWphci5pZCIsInN1YiI6ImI0MmNmZjA5LWYwYjItNGJiNS1iYzc4LTIzYTc1OGE2MWYxNSIsImF1ZCI6WyIxN2VlOWQ0YTc4YWI1MTBmNmRiOCJdLCJleHAiOjE3NDkxMDk0OTQsIm5iZiI6MTc0OTEwNTg5NCwiaWF0IjoxNzQ5MTA1ODk0LCJqdGkiOiJhZG1pbi80YTg1MzNhYS0wMjg1LTRjM2YtOWVjZi04NGZmMmMzMTA5NTUifQ.gc4TxuBBXAaLxjnUoulkVFVYNBZy88_GYfuS9QAZbfuXiXZYRqBCHro0R0CMG-CrZvAlsWbYRF58yUtwoPdQD-lwLl3ByJks9gdGRn3R3It0B71rw882_RTp7EgBwbnLg-RMEKtshjrFzgzNJqrUZ--0KfNFa412SRsYL3TfTWHFV9nQ5Eyy6u1W5UoRd5AMOsdfkvsQztd-BkKzRsrB6D-8wcC-WXvt6M867BtLA6RZs0m73CkWgPszpYqGetqlVyCtwKeQtSiFFPr8gGMMeRwl8NR40OQJ5blmz6mHDs5DO_5qeLVPpMZkqaxQ-kCXAbGOar69gqCsrdLApDp7_BZXw3KAEkP5O2ZImG92eVvvvS5odzcmSj0J4WB9S-Rns7zHw_ul5lzsJ7i99tYNwfbOdP4-3OYL-Sy66nJuyNQSBYBpOEIzhIoIa83AgTATXrFDMsi29KiHVEYURThQU2XvxoXGDeqlWL6cSRaR9Y1iFMIJQppVUgpxS34JBZUb7noXSg6j91zfpx35iizU87B2KurTcv1RBIRrVFfuBSUR0AwvkRrV7nTFVwI6ubfZ8f-B90xXEn_kLhft5-qeoi_oaRM7FD-Joz2CX2KUQzuENF-M_N0kL6BYcmPZOQ-z6bg0S7tnl1J_Bl8DnxFeDcBKDtcVd05AgCO2t_ZYwgE” | cut -d '.' -f2 | base64 -d 2>/dev/null | grep ""roles""
+```
+![image](/uploads/c6adf3c50d9fcfdfcbab5c15554e0f71/image.png){width=583 height=209}
+- Get Jenjang
+![image](/uploads/29afe859677502fc6aadcafa78197e29/image.png){width=769 height=473}
+- Get Fase
+![image](/uploads/fb03759098867d1ff5c686549d49e6cf/image.png){width=769 height=473}
+- Get Mapel
+![image](/uploads/b6c1bab1a1b8252b246636a056db4423/image.png){width=769 height=473}
+- Get Unit
+![image](/uploads/1e2357723df6e55541da3220069c2fbd/image.png){width=769 height=473}
+- Get SubUnit
+![image](/uploads/3d3fb8b2cfa467cebebebb1492a8a1a4/image.png){width=769 height=473}
+
+
+Closes MCM-287"
+388237527,"https://wartek.atlassian.net/wiki/spaces/PME/pages/3048800286/RFC+Handling+Misspelled+Search+Keyword+Fuzzy+String+Matching
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+388566933,"- https://wartek.atlassian.net/wiki/spaces/PME/pages/3007807491/RFC+Materi+View+Count
+- store kalau ada dikirimin `session_id` dari FE
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-720"
+389670182,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+| testName | screenshoot |
+| ------ | ------ |
+| create mapel exactly create kelas with correct mapel jenjang_id & fase       |   ![image](/uploads/9bc1962cb3a397ad558687b44d0a2d54/image.png)     |
+|    Update mapel exactly updates the kelas with corresponding jenjang_id & fase    |    ![image](/uploads/fd8e80627acdfdf448d0494814ca664a/image.png)    |
+
+Closes MCM-296"
+389673412,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- Positive case (return url logo institusi) ![Screenshot_2025-06-09_112041](/uploads/701756b9df3fe25ec446ea24d144663a/Screenshot_2025-06-09_112041.png){width=1134 height=625}
+- Negative case (empty url logo institusi) ![Screenshot_2025-06-09_112222](/uploads/f850251593dc1640dd1e5884150ea6dd/Screenshot_2025-06-09_112222.png){width=1123 height=636}
+
+Closes MUR-765"
+389900643,"![image](/uploads/877d1c3e62448f461b2a85498d07089b/image.png){width=380 height=231}
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-720"
+389912725,"https://wartek.atlassian.net/wiki/spaces/PME/pages/3088449646/2025-06-05+Database+bank+soal
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-795"
+390267697,"make redis optional as it is not required for all services
+
+reference: 
+[log](https://console.cloud.google.com/logs/query;aroundTime=2025-06-11T08:18:28.272583133Z;cursorTimestamp=2025-06-11T08:18:28.272583133Z;duration=PT1H;pinnedLogId=2025-06-11T08:18:28.272583133Z%2Ffzo27fd9sk7ujv8q;query=resource.type%3D%22k8s_container%22%0Aresource.labels.project_id%3D%22wartek-staging%22%0Aresource.labels.location%3D%22asia-southeast2%22%0Aresource.labels.cluster_name%3D%22staging-2%22%0Aresource.labels.namespace_name%3D%22murid%22%0Aresource.labels.pod_name:%22murid-learning-platform-cron-update-search-words-manual-%22%20severity%3E%3DDEFAULT%0Atimestamp%3D%222025-06-11T08:18:28.272583133Z%22%0AinsertId%3D%22fzo27fd9sk7ujv8q%22;storageScope=project?project=wartek-staging)
+
+![image](/uploads/cae2f279d45960ee1237a03f89b27c4b/image.png){width=320 height=60}
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+390549517,"![Screenshot_2025-06-11_at_09.08.18](/uploads/44db37a64f178f64f7f498bce74b3973/Screenshot_2025-06-11_at_09.08.18.png)
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- Test case 1
+  - without query parameters
+  - Kumpulan Soal 1 have 3 tags, 2 with jenjang SD Kelas 5 (repeated), 1 with jenjang SD without kelas. (expect 2 rows of data)
+  - Kumpulan Soal 2 have 2 tags, 1 with jenjang SMP Kelas 7 and 1 with jenjang SMP Kelas 8. (expect 2 rows of data)
+  - Kumpulan Soal 3 have 1 tag with jenjang SMA Kelas 10. (expect 1 row of data)
+  - Kumpulan Soal 4 has no tags. (expect 0 rows of data)
+  - Note for Kumpulan Soal 1: repeated same tag will be counted as 1
+  - Note for Kumpulan Soal 4: Kumpulan Soal with no tag will not be counted
+  - Expect data to be sorted by urutan jenjang and nama kelas NULLS FIRST.
+- Test case 2
+  - Make sure query by jenjang id works correctly
+  - Make sure pagination (offset and limit) works correctly
+- Test case 3
+  - Query by jenjang id, where there is no kumpulan soal tagged. Return empty result.
+- All the above tests also make sure to return the correct data and meta (offset, limit, total).
+
+Closes MUR-779"
+390558884,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-782"
+390853215,"empty data doesn't mean the total is also 0 if offset >= total
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>"
+390878061,"* https://gitlab.com/wartek-id/infra/terraform/-/merge_requests/12871
+* https://gitlab.com/wartek-id/infra/k8s-deploy/-/merge_requests/2057
+* added to SM for redis host, port, and password
+
+# Checklist
+
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+
+- 
+
+Closes MUR-719"
+390890819,"- remove dev flag
+- adjust materi structure
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-765"
+391587162,"API untuk submit data, dan mendapat respon berupa:
+- Total jawaban benar
+- Kunci jawaban dari soal-soal
+- dan `kumpulan_soal_id`
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+
+ Test cases:
+ - submit all answers and all of them are correct, expect total_jawaban_benar = 3 (from 3 soal), return list jawaban benar
+ - submit all answers and 1 answer is incorrect, expect total_jawaban_benar = 2 (from 3 soal), return list jawaban benar
+ - submit no answers, expect total_jawaban_benar = 0 (from 3 soal), return list jawaban benar
+ - submit answers with kumpulan_soal_id not found, expect return 404 status code
+ - submit answers with invalid format of kumpulan_soal_id, expect return 400 status code
+ - submit answers with invalid format of opsi_jawaban_id, expect return 400 status code
+ - submit answers with invalid format of soal_id, expect return 400 status code
+ - submit correct answers but from other kumpulan_soal_id, expect return 400  status code
+ - submit opsi_jawaban_id but not from soal_id, expect return 400  status code
+ - submit valid soal uuid but not in DB, expect return 400  status code
+ - submit valid opsi jawaban uuid but not in DB, expect return 400  status code
+ - submit correct answers but in unordered soal_id, expect success, 3 jawaban benar of 3 soal, return list jawaban benar
+ - submit partial answers and all of them are correct, expect success, 2 jawaban benar of 3 soal, return list jawaban benar
+ - submit partial answers and only 1 answer is correct, expect success, 1 jawaban benar of 3 soal, return list jawaban benar
+
+
+Closes MUR-791"
+391911983,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+materi created_by & updated_at exists in casdoor database, changing it to casdoor email
+![image](/uploads/05e6ca4e3cd48f508850c6f81126d2a4/image.png)
+
+Closes MCM-322"
+391919718,"# Checklist
+
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+
+- 
+
+Closes MUR-779"
+391925396,"<change summary>
+
+# Checklist
+- [ ] development flag (if needed)
+- [ ] run `make pretty`
+- [ ] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [ ] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-651"
+391956978,"<change summary>
+
+# Checklist
+- [x] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-808"
+392270792,"- Tambah kolom `pembahasan` di tabel `soal`
+- Tambah data `pembahasan` di response payload
+
+# Checklist
+- [ ] development flag (if needed)
+- [x] run `make pretty`
+- [x] unit test
+  - request and response structure, according to acceptance criteria/flow
+  - positive cases
+  - negative cases
+- [x] set reviewer mandatory, secondary and QA (if applicable)
+
+# Unit Test Scenarios
+- <list of scenario or unit test name to be checked by QA>
+
+Closes MUR-810"
